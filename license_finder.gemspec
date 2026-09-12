@@ -3,7 +3,7 @@
 version = File.read(File.expand_path('VERSION', __dir__)).strip
 
 Gem::Specification.new do |s|
-  s.required_ruby_version = '>= 2.6.0'
+  s.required_ruby_version = '>= 3.1.4'
   s.name        = 'license_finder'
   s.version     = version
 
@@ -45,7 +45,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bundler'
   s.add_dependency 'csv', '~> 3.2'
-  s.add_dependency 'rubyzip', '>=1', '<3'
+  s.add_dependency 'logger'
+  s.add_dependency 'rubyzip', '>= 3', '< 4'
   s.add_dependency 'thor', '~> 1.2'
   s.add_dependency 'tomlrb', '>= 1.3', '< 2.1'
   s.add_dependency 'with_env', '1.1.0'
@@ -55,9 +56,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '~> 3.39.2'
   s.add_development_dependency 'cocoapods', '>= 1.0.0' if RUBY_PLATFORM.match?(/darwin/)
   s.add_development_dependency 'e2mmap', '~> 0.1.0'
-  s.add_development_dependency 'fakefs', '~> 2.5.0'
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('4.0')
+    s.add_development_dependency 'fakefs', '~> 3.2'
+  else
+    s.add_development_dependency 'fakefs', '~> 2.5'
+  end
+  s.add_development_dependency 'irb'
   s.add_development_dependency 'matrix', '~> 0.4.2'
   s.add_development_dependency 'mime-types', '3.5.2'
+  s.add_development_dependency 'ostruct'
   s.add_development_dependency 'pry', '~> 0.14.1'
   s.add_development_dependency 'rake', '~> 13.1.0'
   s.add_development_dependency 'rspec', '~> 3'

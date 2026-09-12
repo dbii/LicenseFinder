@@ -25,12 +25,19 @@ pushd "$PROJECT_ROOT"
     export RUBYOPT='-E utf-8 -W0'
     gem install "rubygems-update:<3.5.0" --no-document
     gem update --system --conservative
+  elif [[ $RUBY_VERSION_UNDER_TEST == "3.1.4" ]]; then
+    export RUBYOPT='-E utf-8'
+    gem update --system 3.6.9
   else
     export RUBYOPT='-E utf-8'
     gem update --system
   fi
 
-  gem install bundler
+  if [[ $RUBY_VERSION_UNDER_TEST == "3.1.4" ]]; then
+    gem install bundler -v 2.6.9
+  else
+    gem install bundler
+  fi
   bundle install
   bundle pristine
 

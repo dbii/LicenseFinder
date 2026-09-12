@@ -3,10 +3,11 @@
 [![Code Climate](https://codeclimate.com/github/pivotal/LicenseFinder.png)](https://codeclimate.com/github/pivotal/LicenseFinder)
 
 Build status
-* Ruby 2.7.8 [![Ruby 2.7.8 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-2.7.8/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
 * Ruby 3.1.4 [![Ruby 3.1.4 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-3.1.4/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
 * Ruby 3.2.3 [![Ruby 3.2.3 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-3.2.3/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
-* Ruby 3.3.0 [![Ruby 3.3.0 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-3.3.0/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
+* Ruby 3.3.12 [![Ruby 3.3.12 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-3.3.12/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
+* Ruby 3.4.10 [![Ruby 3.4.10 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-3.4.10/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
+* Ruby 4.0.6 [![Ruby 4.0.6 build status](https://norsk.cf-app.com/api/v1/teams/main/pipelines/LicenseFinder/jobs/ruby-4.0.6/badge)](https://norsk.cf-app.com/teams/main/pipelines/LicenseFinder)
 
 
 LicenseFinder works with your package managers to find dependencies,
@@ -67,7 +68,7 @@ repos:
       - id: license-finder
 ```
 
-Running License Finder directly requires Ruby 2.6.0 or greater. If you have an
+Running License Finder directly requires Ruby 3.1.4 or greater. If you have an
 older version of Ruby installed, you can update via Homebrew:
 
 ```sh
@@ -541,7 +542,7 @@ licenseConfigurations := Set("compile", "provided")
 
 ## Requirements
 
-`license_finder` requires ruby >= 2.6.0.
+`license_finder` requires Ruby >= 3.1.4.
 
 
 ## Upgrading
