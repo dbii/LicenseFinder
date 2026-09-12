@@ -29,6 +29,7 @@ module LicenseFinder
       candidate_files_and_dirs
         .flat_map { |path| !path.is_a?(Zip::Entry) && path.directory? ? path.children : path }
         .reject(&:directory?)
+        .select { |path| path.is_a?(Zip::Entry) || path.exist? }
         .uniq
     end
 

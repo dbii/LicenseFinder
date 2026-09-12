@@ -1,3 +1,8 @@
+# [8.0.0-internal.2] / Unreleased
+
+### Fixed
+* Skip dangling symlinks while scanning license files so errors do not corrupt report output.
+
 # [7.2.1] / 2024-05-08
 
 # [7.2.0] / 2024-05-07

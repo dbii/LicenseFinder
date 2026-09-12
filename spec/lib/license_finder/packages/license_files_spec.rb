@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'tmpdir'
 
 module LicenseFinder
   describe LicenseFiles do
@@ -57,6 +58,19 @@ module LicenseFinder
                                                                COPYING
                                                                LICENSE/MIT.txt
                                                              ])
+      end
+
+      it 'skips dangling symlinks without logging an error' do
+        Dir.mktmpdir do |directory|
+          root_path = Pathname(directory)
+          FileUtils.cp(fixture_path('license_names/LICENSE'), root_path.join('LICENSE'))
+          File.symlink('nonexistent', root_path.join('COPYING'))
+          logger = double('logger')
+
+          files = described_class.find(root_path.to_s, logger: logger)
+
+          expect(files.map { |file| Pathname(file.path).relative_path_from(root_path).to_s }).to eq(['LICENSE'])
+        end
       end
 
       it 'handles non UTF8 encodings' do
